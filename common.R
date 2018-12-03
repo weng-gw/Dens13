@@ -14,6 +14,6 @@ norm.hess <- function(x,mu,sigma){
     omega <- qr.solve(sigma)
     xbar <- qr.solve(sigma, x-mu)
     fvalue <- tcrossprod(xbar)-omega
-    return(fvalue)
+    return(fvalue*dmvnorm(x,mean=mu,sigma=sigma))
 }
 
